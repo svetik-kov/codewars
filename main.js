@@ -6,14 +6,15 @@ function countPositivesSumNegatives(input) {
     } else {
         input.map((num) => num > 0 ? positiveNums++ : negativeNums += num);
     }
-    return [positiveNums , negativeNums];
+    return [positiveNums, negativeNums];
 }
+
 //console.log(countPositivesSumNegatives([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]))
 
 //Implement a function which multiplies two numbers.
 function multiply(num1, num2) {
 
-    return num1*num2;
+    return num1 * num2;
 }
 
 
@@ -31,15 +32,17 @@ Examples
 * Input: [1,2,3,4,5], output= [2,3,4,5]
     * Input: [5,3,2,1,4], output = [5,3,2,4]
     * Input: [2,2,1,2,1], output = [2,2,2,1]*/
+
 //1
 function removeSmallest1(numbers) {
-    function removeSmallest(numbers) {
-        let copynumbers=[...numbers]
-        let indexOfMin = copynumbers.indexOf(Math.min(...copynumbers));
-        copynumbers.splice(indexOfMin, 1);
-        return copynumbers;
-    }
-console.log(removeSmallest1([11, 7, 3, 9, 5, 89,3]))
+    let copynumbers = [...numbers]
+    let indexOfMin = copynumbers.indexOf(Math.min(...copynumbers));
+    copynumbers.splice(indexOfMin, 1);
+    return copynumbers;
+}
+
+console.log(removeSmallest1([11, 7, 3, 9, 5, 89, 3]))
+
 //2
 function removeSmallest2(numbers) {
     if (numbers.length === 0) return numbers;
@@ -50,4 +53,33 @@ function removeSmallest2(numbers) {
 
 }
 
-console.log(removeSmallest2([11, 7, 3, 9, 5, 89,3]))
+console.log(removeSmallest2([11, 7, 3, 9, 5, 89, 3]))
+
+/*
+Your task is to create a function that does four basic mathematical operations.
+
+    The function should take three arguments - operation(string/char), value1(number), value2(number).
+    The function should return result of numbers after applying the chosen operation.
+
+Examples(Operator, value1, value2) --> output
+('+', 4, 7) --> 11
+('-', 15, 18) --> -3
+('*', 5, 5) --> 25
+('/', 49, 7) --> 7*/
+
+
+function basicOp(operation, value1, value2) {
+      if (operation === '+') {
+        return value1 + value2
+    }
+    if (operation === '-') {
+        return value1 - value2
+    }
+    if (operation === '*') {
+        return value1 * value2
+    }
+    if (operation === '/') {
+        return value1 / value2
+    }
+}
+console.log(basicOp('+', 4, 7))
