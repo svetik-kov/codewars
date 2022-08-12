@@ -66,10 +66,8 @@ Examples(Operator, value1, value2) --> output
 ('-', 15, 18) --> -3
 ('*', 5, 5) --> 25
 ('/', 49, 7) --> 7*/
-
-
 function basicOp(operation, value1, value2) {
-      if (operation === '+') {
+    if (operation === '+') {
         return value1 + value2
     }
     if (operation === '-') {
@@ -83,3 +81,4 @@ function basicOp(operation, value1, value2) {
     }
 }
 console.log(basicOp('+', 4, 7))
+
