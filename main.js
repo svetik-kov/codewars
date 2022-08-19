@@ -159,3 +159,22 @@ function openOrSenior(data){
     return data.map(([least, handicap])=>least>=55 && handicap>7 ?'Senior':"Open")
 }
 console.log(openOrSenior([[18, 20], [45, 2], [61, 12], [37, 6], [21, 21], [78, 9]]))
+
+
+//2 способ
+function openOrSenior1(data){
+    let result = [];
+    data.forEach(function(member) {
+        if(member[0] >= 55 && member[1] > 7) {
+            result.push('Senior');
+        } else {
+            result.push('Open');
+        }
+    })
+    return result;
+}
+
+//3 способ
+openOrSenior3 = data => data.map(e => (e[0] > 54 && e[1] > 7) ? "Senior" : "Open")
+
+//
