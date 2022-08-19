@@ -99,14 +99,14 @@ function grow(x){
 }
 console.log(grow([1, 2, 3, 4]))
 //2 способ
-const grow = x => {
+const grow2 = x => {
     let res = 1;
     for (let i = 0; i < x.length; i++) {
         res *= x[i];
     }
     return res;
 };
-
+console.log(grow2([1, 2, 3, 4]))
 //Given a set of numbers, return the additive inverse of each. Each positive becomes negatives, and the negatives become positives.
 //
 // invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
@@ -125,3 +125,13 @@ function invert(array) {
     }
     return result;
 }
+//(2 способ)Given a set of numbers, return the additive inverse of each. Each positive becomes negatives, and the negatives become positives.
+//
+// invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
+// invert([1,-2,3,-4,5]) == [-1,2,-3,4,-5]
+// invert([]) == []
+// You can assume that all values are integers. Do not mutate the input array/list.
+function invert2(array) {
+    return array.map(el=>el*-1)
+}
+console.log(invert2([]))
