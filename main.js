@@ -98,3 +98,11 @@ function grow(x){
     return x.reduce((acc,el)=>acc*el,1)
 }
 console.log(grow([1, 2, 3, 4]))
+//2 способ
+const grow = x => {
+    let res = 1;
+    for (let i = 0; i < x.length; i++) {
+        res *= x[i];
+    }
+    return res;
+};
