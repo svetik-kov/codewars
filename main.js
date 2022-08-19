@@ -135,3 +135,13 @@ function invert2(array) {
     return array.map(el=>el*-1)
 }
 console.log(invert2([]))
+
+/*You are given two interior angles (in degrees) of a triangle.
+    Write a function to return the 3rd.
+    Note: only positive integers will be tested.*/
+function otherAngle(a, b) {
+    let ug=180-(a+b)
+    return ug;
+}
+console.log(otherAngle(25, 35))
+
