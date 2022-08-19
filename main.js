@@ -46,11 +46,11 @@ console.log(removeSmallest1([11, 7, 3, 9, 5, 89, 3]))
 //2
 function removeSmallest2(numbers) {
     if (numbers.length === 0) return numbers;
+    // let smallest = numbers.reduce((acc, el) =>acc<el?acc:el);
     let smallest = numbers.reduce((acc, el) => Math.min(acc, el));
     console.log(smallest)
     numbers.splice(numbers.indexOf(smallest), 1);
     return numbers;
-
 }
 
 console.log(removeSmallest2([11, 7, 3, 9, 5, 89, 3]))
@@ -82,3 +82,13 @@ function basicOp(operation, value1, value2) {
 }
 console.log(basicOp('+', 4, 7))
 
+
+//Write a function which converts the input string to uppercase.
+
+function makeUpperCase(str) {
+    let make=str.toUpperCase()
+    return make
+}
+console.log(makeUpperCase('hello'))
+
+//
