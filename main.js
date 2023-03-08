@@ -480,3 +480,38 @@ function feast(beast, dish) {
     let secondDish=dish.toLowerCase().split('').pop()
     return (firstBeast===firstDish && secondBeast===secondDish )?true:false
 }
+
+/*
+*/
+function count (string) {
+    const count={}
+    string.split('').map(el=>count[el]?count[el]++:count[el]=1)
+    return count;
+}
+//2 способ
+function count (string) {
+    return string.split('').reduce(function(counts,char){
+        counts[char] = (counts[char]||0) + 1;
+        return counts;
+    },{});
+}
+//3
+function count (string) {
+    return string.split("").reduce(function(obj, elem) {
+        if (elem in obj)
+            obj[elem]++;
+        else
+            obj[elem] = 1;
+        return obj;
+    }, {});
+}
+//4
+function count (string) {
+    string = string.split("");
+    var chars = {};
+    for(var i = 0; i < string.length; i++) {
+        if(chars[string[i]] == undefined) chars[string[i]] = 0;
+        chars[string[i]]++;
+    }
+    return chars;
+}
