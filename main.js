@@ -515,3 +515,15 @@ function count (string) {
     }
     return chars;
 }
+
+/*Write a function which calculates the average of the numbers in a given list.
+
+    Note: Empty arrays should return 0.*/
+
+function findAverage(array) {
+    if (array.length){
+        const arr=array.reduce((el,acc)=>acc+el)
+        return arr/array.length
+           }
+        return 0;
+}
