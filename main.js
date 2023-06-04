@@ -41,19 +41,19 @@ function removeSmallest1(numbers) {
     return copynumbers;
 }
 
-console.log(removeSmallest1([11, 7, 3, 9, 5, 89, 3]))
+//console.log(removeSmallest1([11, 7, 3, 9, 5, 89, 3]))
 
 //2
 function removeSmallest2(numbers) {
     if (numbers.length === 0) return numbers;
     // let smallest = numbers.reduce((acc, el) =>acc<el?acc:el);
     let smallest = numbers.reduce((acc, el) => Math.min(acc, el));
-    console.log(smallest)
+   // console.log(smallest)
     numbers.splice(numbers.indexOf(smallest), 1);
     return numbers;
 }
 
-console.log(removeSmallest2([11, 7, 3, 9, 5, 89, 3]))
+//console.log(removeSmallest2([11, 7, 3, 9, 5, 89, 3]))
 
 /*
 Your task is to create a function that does four basic mathematical operations.
@@ -81,7 +81,7 @@ function basicOp(operation, value1, value2) {
     }
 }
 
-console.log(basicOp('+', 4, 7))
+//console.log(basicOp('+', 4, 7))
 
 
 //Write a function which converts the input string to uppercase.
@@ -91,7 +91,7 @@ function makeUpperCase(str) {
     return make
 }
 
-console.log(makeUpperCase('hello'))
+//console.log(makeUpperCase('hello'))
 
 //Given a non-empty array of integers, return the result of multiplying the values together in order. Example:
 //
@@ -100,7 +100,7 @@ function grow(x) {
     return x.reduce((acc, el) => acc * el, 1)
 }
 
-console.log(grow([1, 2, 3, 4]))
+//console.log(grow([1, 2, 3, 4]))
 //2 способ
 const grow2 = x => {
     let res = 1;
@@ -109,7 +109,7 @@ const grow2 = x => {
     }
     return res;
 };
-console.log(grow2([1, 2, 3, 4]))
+//console.log(grow2([1, 2, 3, 4]))
 //Given a set of numbers, return the additive inverse of each. Each positive becomes negatives, and the negatives become positives.
 //
 // invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
@@ -139,7 +139,7 @@ function invert2(array) {
     return array.map(el => el * -1)
 }
 
-console.log(invert2([]))
+//console.log(invert2([]))
 
 /*You are given two interior angles (in degrees) of a triangle.
     Write a function to return the 3rd.
@@ -149,7 +149,7 @@ function otherAngle(a, b) {
     return ug;
 }
 
-console.log(otherAngle(25, 35))
+//console.log(otherAngle(25, 35))
 
 /*
 The Western Suburbs Croquet Club has two categories of membership, Senior and Open. They would like your help with an application form that will tell prospective members which category they will be placed.
@@ -165,7 +165,7 @@ function openOrSenior(data) {
     return data.map(([least, handicap]) => least >= 55 && handicap > 7 ? 'Senior' : "Open")
 }
 
-console.log(openOrSenior([[18, 20], [45, 2], [61, 12], [37, 6], [21, 21], [78, 9]]))
+//console.log(openOrSenior([[18, 20], [45, 2], [61, 12], [37, 6], [21, 21], [78, 9]]))
 
 
 //2 способ
@@ -197,7 +197,7 @@ function hoopCount(n) {
     }
 }
 
-console.log(hoopCount(5))
+//console.log(hoopCount(5))
 
 /*
 Messi goals function
@@ -257,7 +257,7 @@ function nbYear(p0, percent, aug, p) {
     return final.length
 }
 
-console.log(nbYear(1500, 5, 100, 5000))
+//console.log(nbYear(1500, 5, 100, 5000))
 
 
 //2 способ
@@ -300,7 +300,7 @@ function powersOfTwo(n) {
     }
     return finish
 }
-console.log(powersOfTwo(2))
+//console.log(powersOfTwo(2))
 
 // Write a function that accepts an integer n and a string s as parameters, and returns a string of s repeated exactly n times.
 //
@@ -451,7 +451,7 @@ function persistence(num) {
     },1)
     return 1 + persistence(next)
 }
-console.log(persistence(39))
+//console.log(persistence(39))
 
 //2способ
 function persistence(num) {
@@ -645,7 +645,7 @@ function removeChar(str){
 };
 
 //2 способ
-const removeChar = str => {
+const removeChar1 = str => {
     let newStr = ''
     for(let i = 1; i < str.length - 1; i++) {
         newStr += str[i]
@@ -653,7 +653,7 @@ const removeChar = str => {
     return newStr
 }
 //3 способ
-const removeChar = str => {
+const removeChar2 = str => {
     return str.slice(1, str.length - 1)
 }
 //Nathan loves cycling.
@@ -697,9 +697,9 @@ function century(year) {
     return centuryCount;
 }
 //2 способ
-const century = year => Math.ceil(year/100)
+const century2 = year => Math.ceil(year/100)
 //3 способ
-function century(year) {
+function century3(year) {
     var century = 0;
 
     for(var i = 0; i < year; i++) {
@@ -719,3 +719,24 @@ function digitize(n) {
     arr= String(n).split('').reverse().map(Number)
     return arr
 }
+
+/*
+Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
+
+    The output should be two capital letters with a dot separating them.
+
+    It should look like this:
+
+Sam Harris => S.H
+
+patrick feeney => P.F*/
+
+function abbrevName(name){
+/*let array=name.split(' ')
+  let oneLetter=array.map(el=>el[0])
+    let res=oneLetter.join('.')
+    return res*/
+let result=name.split(' ').map(el=>el[0]).join('.')
+    return result.toUpperCase()
+}
+//console.log(abbrevName("veta Kovalevich"))
