@@ -48,7 +48,7 @@ function removeSmallest2(numbers) {
     if (numbers.length === 0) return numbers;
     // let smallest = numbers.reduce((acc, el) =>acc<el?acc:el);
     let smallest = numbers.reduce((acc, el) => Math.min(acc, el));
-   // console.log(smallest)
+    // console.log(smallest)
     numbers.splice(numbers.indexOf(smallest), 1);
     return numbers;
 }
@@ -293,13 +293,14 @@ function nbYear(p0, percent, aug, p) {
 // n = 2  ==> [1, 2, 4]  # [2^0, 2^1, 2^2]
 
 function powersOfTwo(n) {
- let finish=[]
-   let a=2
-    for (let i= 0;i<=n ;i++) {
-        finish.push(a**i)
+    let finish = []
+    let a = 2
+    for (let i = 0; i <= n; i++) {
+        finish.push(a ** i)
     }
     return finish
 }
+
 //console.log(powersOfTwo(2))
 
 // Write a function that accepts an integer n and a string s as parameters, and returns a string of s repeated exactly n times.
@@ -308,10 +309,10 @@ function powersOfTwo(n) {
 // 6, "I"     -> "IIIIII"
 // 5, "Hello" -> "HelloHelloHelloHelloHello"
 
-function repeatStr (n, s) {
-    let final=s.repeat(n)
+function repeatStr(n, s) {
+    let final = s.repeat(n)
 
-    return  final;
+    return final;
 }
 
 
@@ -355,13 +356,15 @@ Examples
 4  =>  true
 25  =>  true
 26  =>  false*/
-var isSquare = function(n){
-    if (n<0 | Math.sqrt(n)%1!==0){
+var isSquare = function (n) {
+    if (n < 0 | Math.sqrt(n) % 1 !== 0) {
         return false
     } else
 
-        Math.sqrt(n)%1===0
-    {return true}
+        Math.sqrt(n) % 1 === 0
+    {
+        return true
+    }
 
 }
 
@@ -380,20 +383,20 @@ The correct answer would be 17.
 Hint: Don't forget to check for bad values like null/undefined*/
 
 function countSheeps(arrayOfSheep) {
-    let countSheeps=0
-    for (let i=0;i<arrayOfSheep.length;i++){
-        if (arrayOfSheep[i]){
+    let countSheeps = 0
+    for (let i = 0; i < arrayOfSheep.length; i++) {
+        if (arrayOfSheep[i]) {
             countSheeps++
         }
     }
     return countSheeps
 }
+
 //2 способ
 function countSheeps(arrayOfSheep) {
 
-    return arrayOfSheep.filter((sheep)=>sheep===true).length
+    return arrayOfSheep.filter((sheep) => sheep === true).length
 }
-
 
 
 /*
@@ -408,26 +411,27 @@ Write a function that will return the count of distinct case-insensitive alphabe
 "Indivisibilities" -> 2 # 'i' occurs seven times and 's' occurs twice
 "aA11" -> 2 # 'a' and '1'
 "ABBA" -> 2 # 'A' and 'B' each occur twice*/
-function duplicateCount(text){
+function duplicateCount(text) {
 
-    let newText=text.toLowerCase()
-    let dublicate={}
-    let counter=0
-    for (let i=0;i<newText.length;i++){
-        if(!dublicate[newText[i]]){
-            dublicate[newText[i]]=1
-        } else if(dublicate[newText[i]]<2){
-            dublicate[newText[i]]+=1
+    let newText = text.toLowerCase()
+    let dublicate = {}
+    let counter = 0
+    for (let i = 0; i < newText.length; i++) {
+        if (!dublicate[newText[i]]) {
+            dublicate[newText[i]] = 1
+        } else if (dublicate[newText[i]] < 2) {
+            dublicate[newText[i]] += 1
             counter++
         }
     }
     return counter
 }
+
 /*
 Implement a function which convert the given boolean value into its string representation.
 
     Note: Only valid inputs will be given.*/
-function booleanToString(b){
+function booleanToString(b) {
     return b.toString()
 }
 
@@ -441,27 +445,28 @@ DESCRIPTION:
 999 --> 4 (because 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, and finally 1*2 = 2)
 4 --> 0 (because 4 is already a one-digit number)*/
 function persistence(num) {
-    const str=num.toString()
-    if(str.length===1){
+    const str = num.toString()
+    if (str.length === 1) {
         return 0
     }
-    const next=str.split('').reduce((acc,el)=>
-    {return acc*el
+    const next = str.split('').reduce((acc, el) => {
+        return acc * el
 
-    },1)
+    }, 1)
     return 1 + persistence(next)
 }
+
 //console.log(persistence(39))
 
 //2способ
 function persistence(num) {
-    let splitNumArr=num.toString().split('')
-    let count=0
-    while(splitNumArr.length>1){
-        let newList=splitNumArr.reduce((acc,curr)=>{
-            return acc*curr
+    let splitNumArr = num.toString().split('')
+    let count = 0
+    while (splitNumArr.length > 1) {
+        let newList = splitNumArr.reduce((acc, curr) => {
+            return acc * curr
         })
-        splitNumArr=newList.toString().split('')
+        splitNumArr = newList.toString().split('')
         count++
     }
     return count
@@ -474,30 +479,32 @@ Write a function feast that takes the animal's name and dish as arguments and re
 
 Assume that beast and dish are always lowercase strings, and that each has at least two letters. beast and dish may contain hyphens and spaces, but these will not appear at the beginning or end of the string. They will not contain numerals.*/
 function feast(beast, dish) {
-    let firstBeast=beast.toLowerCase().split('').shift()
-    let firstDish=dish.toLowerCase().split('').shift()
-    let secondBeast=beast.toLowerCase().split('').pop()
-    let secondDish=dish.toLowerCase().split('').pop()
-    return (firstBeast===firstDish && secondBeast===secondDish )?true:false
+    let firstBeast = beast.toLowerCase().split('').shift()
+    let firstDish = dish.toLowerCase().split('').shift()
+    let secondBeast = beast.toLowerCase().split('').pop()
+    let secondDish = dish.toLowerCase().split('').pop()
+    return (firstBeast === firstDish && secondBeast === secondDish) ? true : false
 }
 
 /*
 */
-function count (string) {
-    const count={}
-    string.split('').map(el=>count[el]?count[el]++:count[el]=1)
+function count(string) {
+    const count = {}
+    string.split('').map(el => count[el] ? count[el]++ : count[el] = 1)
     return count;
 }
+
 //2 способ
-function count (string) {
-    return string.split('').reduce(function(counts,char){
-        counts[char] = (counts[char]||0) + 1;
+function count(string) {
+    return string.split('').reduce(function (counts, char) {
+        counts[char] = (counts[char] || 0) + 1;
         return counts;
-    },{});
+    }, {});
 }
+
 //3
-function count (string) {
-    return string.split("").reduce(function(obj, elem) {
+function count(string) {
+    return string.split("").reduce(function (obj, elem) {
         if (elem in obj)
             obj[elem]++;
         else
@@ -505,12 +512,13 @@ function count (string) {
         return obj;
     }, {});
 }
+
 //4
-function count (string) {
+function count(string) {
     string = string.split("");
     var chars = {};
-    for(var i = 0; i < string.length; i++) {
-        if(chars[string[i]] == undefined) chars[string[i]] = 0;
+    for (var i = 0; i < string.length; i++) {
+        if (chars[string[i]] == undefined) chars[string[i]] = 0;
         chars[string[i]]++;
     }
     return chars;
@@ -521,11 +529,11 @@ function count (string) {
     Note: Empty arrays should return 0.*/
 
 function findAverage(array) {
-    if (array.length){
-        const arr=array.reduce((el,acc)=>acc+el)
-        return arr/array.length
-           }
-        return 0;
+    if (array.length) {
+        const arr = array.reduce((el, acc) => acc + el)
+        return arr / array.length
+    }
+    return 0;
 }
 
 /*
@@ -534,14 +542,13 @@ You ask a small girl,"How old are you?" She always says, "x years old", where x 
 Write a program that returns the girl's age (0-9) as an integer.
 
 Assume the test input string is always a valid string. For example, the test input may be "1 year old" or "5 years old". The first character in the string is always a number.*/
-function getAge(inputString){
+function getAge(inputString) {
     return Number(inputString[0])
 }
 
-function getAge1(inputString){
+function getAge1(inputString) {
     return parseInt(inputString)
 }
-
 
 
 /*You get an array of numbers, return the sum of all of the positives ones.
@@ -550,25 +557,27 @@ function getAge1(inputString){
 
 Note: if there is nothing to sum, the sum is default to 0.*/
 function positiveSum(arr) {
-    let sum=0
-    for(let i=0;i<arr.length;i++){
-        if (arr[i]>0)
-            sum+=arr[i]
+    let sum = 0
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > 0)
+            sum += arr[i]
     }
     return sum
 }
+
 //2 способ
 function positiveSum(arr) {
-    return arr.reduce((a,b)=> a + (b > 0 ? b : 0),0);
+    return arr.reduce((a, b) => a + (b > 0 ? b : 0), 0);
 }
 
 //3 способ
 function positiveSum(arr) {
-    return arr.filter(x => x > 0).reduce((a, b) => a+b, 0);
+    return arr.filter(x => x > 0).reduce((a, b) => a + b, 0);
 }
+
 //4 способ
-function positiveSum( obj ) {
-    return obj.map(el => el < 0 ? 0 : el).reduce((acc, i)=> acc + i, 0)
+function positiveSum(obj) {
+    return obj.map(el => el < 0 ? 0 : el).reduce((acc, i) => acc + i, 0)
 }
 
 /*
@@ -594,10 +603,9 @@ function makeNegative(num) {
 
 //3 способ
 function makeNegative(num) {
-    if ( num > 0 ) {
+    if (num > 0) {
         return -num;
-    }
-    else {
+    } else {
         return num;
     }
 }
@@ -605,7 +613,7 @@ function makeNegative(num) {
 /*Create a function that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers.*/
 
 function evenOrOdd(number) {
-    return (number%2===0)?'Even':'Odd'
+    return (number % 2 === 0) ? 'Even' : 'Odd'
 
 }
 
@@ -615,10 +623,9 @@ Complete the solution so that it reverses the string passed into it.
 
 'world'  =>  'dlrow'
 'word'   =>  'drow'*/
-function solution(str){
+function solution(str) {
     return str.split('').reverse().join('')
 }
-
 
 
 /*
@@ -636,7 +643,7 @@ function opposite(number) {
 /*
 It's pretty straightforward. Your goal is to create a function that removes the first and last characters of a string. ' +
 'You're given one parameter, the original string. You don't have to worry with strings with less than two characters*/
-function removeChar(str){
+function removeChar(str) {
     const newStr = str.split('')
     newStr.shift()
     newStr.pop()
@@ -647,7 +654,7 @@ function removeChar(str){
 //2 способ
 const removeChar1 = str => {
     let newStr = ''
-    for(let i = 1; i < str.length - 1; i++) {
+    for (let i = 1; i < str.length - 1; i++) {
         newStr += str[i]
     }
     return newStr
@@ -672,7 +679,7 @@ const removeChar2 = str => {
 
 function litres(time) {
 
-    return Math.floor(time/2);
+    return Math.floor(time / 2);
 }
 
 // DESCRIPTION:
@@ -690,25 +697,28 @@ function litres(time) {
 // Note: this kata uses strict construction as shown in the description and the examples, you can read more about it here
 function century(year) {
     let centuryCount = 0;
-    while (year > 0){
+    while (year > 0) {
         year = year - 100;
         centuryCount = centuryCount + 1;
     }
     return centuryCount;
 }
+
 //2 способ
-const century2 = year => Math.ceil(year/100)
+const century2 = year => Math.ceil(year / 100)
+
 //3 способ
 function century3(year) {
     var century = 0;
 
-    for(var i = 0; i < year; i++) {
-        if(i % 100 == 0) {
+    for (var i = 0; i < year; i++) {
+        if (i % 100 == 0) {
             century++;
         }
     }
     return century;
 }
+
 //Convert number to reversed array of digits
 // Given a random non-negative number, you have to return the digits of this number within an array in reverse order.
 //
@@ -716,7 +726,7 @@ function century3(year) {
 // 35231 => [1,3,2,5,3]
 // 0 => [0]
 function digitize(n) {
-    arr= String(n).split('').reverse().map(Number)
+    arr = String(n).split('').reverse().map(Number)
     return arr
 }
 
@@ -731,14 +741,15 @@ Sam Harris => S.H
 
 patrick feeney => P.F*/
 
-function abbrevName(name){
-/*let array=name.split(' ')
-  let oneLetter=array.map(el=>el[0])
-    let res=oneLetter.join('.')
-    return res*/
-let result=name.split(' ').map(el=>el[0]).join('.')
+function abbrevName(name) {
+    /*let array=name.split(' ')
+      let oneLetter=array.map(el=>el[0])
+        let res=oneLetter.join('.')
+        return res*/
+    let result = name.split(' ').map(el => el[0]).join('.')
     return result.toUpperCase()
 }
+
 //console.log(abbrevName("veta Kovalevich"))
 
 //Create a function that checks if a number n is divisible by two numbers x AND y. All inputs are positive, non-zero numbers.
@@ -750,8 +761,9 @@ let result=name.split(' ').map(el=>el[0]).join('.')
 // 4) n =  12, x = 7, y = 5 => false because  12 is neither divisible b
 
 function isDivisible(n, x, y) {
-    return (n%x===0 && n%y===0 )? true:false
+    return (n % x === 0 && n % y === 0) ? true : false
 }
+
 //console.log(isDivisible(6,2,7))
 
 
@@ -759,17 +771,17 @@ function isDivisible(n, x, y) {
 //
 // [Make sure you type the exact thing I wrote or the program may not execute properly]
 
-function greet(name){
+function greet(name) {
     return `Hello, ${name} how are you doing today?`
 }
 
 //console.log(greet("Sveta"))
 //---------------------------------------------------
 //Given an array of integers, return a new array with each value doubled.
-  //  For example:
-   // [1, 2, 3] --> [2, 4, 6]
-function maps(x){
-    return x.map(el=>el*2)
+//  For example:
+// [1, 2, 3] --> [2, 4, 6]
+function maps(x) {
+    return x.map(el => el * 2)
 }
 
 //console.log(maps([1, 2, 3]))
@@ -779,8 +791,9 @@ Make a simple function called greet that returns the most-famous "hello world!".
     Style Points
 Sure, this is about as easy as it gets. But how clever can you be to create the most creative
 "hello world" you can think of? What is a "hello world" solution you would want to show your friends?*/
+
 // Write a function "greet" that returns "hello world!"
-function greet(){
+function greet() {
     return "hello world!"
 }
 
@@ -788,11 +801,11 @@ function greet(){
     If one of the flowers has an even number of petals and the other has an odd number of petals it means they are in love.
     Write a function that will take the number of petals of each flower and return true if they are in love and false if they aren't.*/
 
-function lovefunc(flower1, flower2){
+function lovefunc(flower1, flower2) {
     // moment of truth
-    if ((flower1%2===0 && flower2%2===1) || (flower2%2===0 && flower1%2===1) ){
+    if ((flower1 % 2 === 0 && flower2 % 2 === 1) || (flower2 % 2 === 0 && flower1 % 2 === 1)) {
         return true
-    }else {
+    } else {
         return false
     }
 }
@@ -809,14 +822,15 @@ function lovefunc(flower1, flower2){
 //
 // ("1", "22") --> "1221"
 // ("22", "1") --> "1221"
-function solution(a, b){
+function solution(a, b) {
     // your code here
-    if (a.length>b.length){
+    if (a.length > b.length) {
         //let c = b+a+b
-        return b.concat(a,b)
+        return b.concat(a, b)
     }
-    return a.concat(b,a)
-        }
+    return a.concat(b, a)
+}
+
 //console.log(solution("1", "22"))
 
 //One of the simplest, yet most important factors is compensation. As developers we know how much money we need to support our lifestyle, so we generally have a rough idea of the minimum salary we would be satisfied with.
@@ -840,3 +854,16 @@ function solution(a, b){
 // in case the candidate is a rockstar who enjoys programming on Codewars in their spare time.
 // The company offering the job may be able to work something out.
 
+function match(candidate, job) {
+    // is this job a valid match for the candidate?
+    if (candidate.minSalary >= job.maxSalary) {
+        return false
+    } else {
+        return  true
+    }
+}
+
+let candidate = {minSalary: 120000},
+    job = {maxSalary: 130000},
+    job1 = {maxSalary: 80000};
+console.log(match(candidate, job))
