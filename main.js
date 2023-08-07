@@ -856,11 +856,11 @@ function solution(a, b) {
 
 function match(candidate, job) {
     // is this job a valid match for the candidate?
-    if (candidate.minSalary >= job.maxSalary) {
-        return false
-    } else {
-        return  true
-    }
+    if (!candidate.minSalary|| !job.maxSalary)
+        throw Error
+
+    return candidate.minSalary*0.9 <= job.maxSalary
+
 }
 
 let candidate = {minSalary: 120000},
