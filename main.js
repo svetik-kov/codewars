@@ -866,4 +866,25 @@ function match(candidate, job) {
 let candidate = {minSalary: 120000},
     job = {maxSalary: 130000},
     job1 = {maxSalary: 80000};
-console.log(match(candidate, job))
+//console.log(match(candidate, job))
+
+//Given a string, you have to return a string in which each character (case-sensitive) is repeated once.
+//
+// Examples (Input -> Output):
+// * "String"      -> "SSttrriinngg"
+// * "Hello World" -> "HHeelllloo  WWoorrlldd"
+// * "1234!_ "     -> "11223344!!__  "
+// Good Luck!
+
+function doubleChar(str) {
+   let st=str.split('').map((el)=>el+el).join('')
+   return st
+}
+function doubleChar1(str) {
+    var word = '';
+    for (var i = 0; i < str.length; i++){
+        word = word + str[i] + str[i];
+    };
+    return word;
+};
+//console.log(doubleChar('str'))
