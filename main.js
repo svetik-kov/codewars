@@ -856,10 +856,10 @@ function solution(a, b) {
 
 function match(candidate, job) {
     // is this job a valid match for the candidate?
-    if (!candidate.minSalary|| !job.maxSalary)
+    if (!candidate.minSalary || !job.maxSalary)
         throw Error
 
-    return candidate.minSalary*0.9 <= job.maxSalary
+    return candidate.minSalary * 0.9 <= job.maxSalary
 
 }
 
@@ -877,14 +877,16 @@ let candidate = {minSalary: 120000},
 // Good Luck!
 
 function doubleChar(str) {
-   let st=str.split('').map((el)=>el+el).join('')
-   return st
+    let st = str.split('').map((el) => el + el).join('')
+    return st
 }
+
 function doubleChar1(str) {
     var word = '';
-    for (var i = 0; i < str.length; i++){
+    for (var i = 0; i < str.length; i++) {
         word = word + str[i] + str[i];
-    };
+    }
+    ;
     return word;
 };
 //console.log(doubleChar('str'))
@@ -902,16 +904,17 @@ function doubleChar1(str) {
 // The size will always be positive and will only use whole numbers.
 
 function stringy(size) {
- let str=''
-    for (let i=1;i<=size;i++){
-        str=str+i%2
+    let str = ''
+    for (let i = 1; i <= size; i++) {
+        str = str + i % 2
     }
     return str
 }
+
 //console.log(stringy(6))
 
 //2 способ
-const stringy1 = size => "10".repeat(size).slice(0,size);
+const stringy1 = size => "10".repeat(size).slice(0, size);
 
 //In this kata you will create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
 //
@@ -922,7 +925,7 @@ const stringy1 = size => "10".repeat(size).slice(0,size);
 
 function filter_list(l) {
     // Return a new array with the strings filtered out
-    return l.filter(el=> typeof el!=='string')
+    return l.filter(el => typeof el !== 'string')
 
 }
 
@@ -936,7 +939,7 @@ function filter_list(l) {
 // uniqueInOrder('ABBCcAD')         == ['A', 'B', 'C', 'c', 'A', 'D']
 // uniqueInOrder([1,2,2,3,3])       == [1,2,3]
 
-var uniqueInOrder=function(iterable) {
+var uniqueInOrder = function (iterable) {
     //your code here - remember iterable can be a string or an array
     /*const str=iterable.split('')
     return str.filter((el,index,array)=>index===array.indexOf(el))*/
@@ -968,16 +971,36 @@ var uniqueInOrder=function(iterable) {
     }
     return result;
 }
-    //2 способ
-    var uniqueInOrder=function(iterable){
-        var res = [];
-        for (var i = 0; i < iterable.length; i++) {
-            if (iterable[i] != iterable[i+1]) res.push(iterable[i]);
-        }
-        return res;
+//2 способ
+var uniqueInOrder1 = function (iterable) {
+    var res = [];
+    for (var i = 0; i < iterable.length; i++) {
+        if (iterable[i] != iterable[i + 1]) res.push(iterable[i]);
     }
-        //3способ
-const uniqueInOrder = d => [...d].filter((x, i, a) => x != a[i + 1])
+    return res;
+}
+//3способ
+const uniqueInOrder2 = d => [...d].filter((x, i, a) => x != a[i + 1])
 
 
-console.log(uniqueInOrder('ABBCcAD'))
+//console.log(uniqueInOrder('ABBCcAD'))
+
+//You can print your name on a billboard ad. Find out how much it will cost you. Each character has a default price of £30, but that can be different if you are given 2 parameters instead of 1 (allways 2 for Java).
+//
+// You can not use multiplier "*" operator.
+//
+// If your name would be Jeong-Ho Aristotelis, ad would cost £600. 20 leters * 30 = 600 (Space counts as a character).
+
+function billboard(name, price = 30) {
+    let cost = 0
+    for (let i = 0; i <name.length; i++) {
+        cost += price
+    }
+    return cost
+    // return name.length*price
+}
+//2 способ
+function billboard1(name, price = 30) {
+    return name.split('').reduce((sum, letter) => sum + price, 0);
+}
+console.log(billboard("Hadufuns John", 20))

@@ -59,3 +59,25 @@ const sheepCounter=(arr)=>{
 }
 
 console.log(sheepCounter(sheep)) //4
+
+
+
+var uniqueInOrder=function(iterable){
+    //your code here - remember iterable can be a string or an array
+    if(iterable.length==0){
+        return [];
+    }
+    if(typeof iterable=='string'){
+        iterable = iterable.split("");
+    }
+
+    var result = [];;
+    for(var i = 0;i<iterable.length;i++){
+        if(i == 0){
+            result.push(iterable[0])
+        }else if(iterable[i] != iterable[i-1]){
+            result.push(iterable[i])
+        }
+    }
+    return result;
+}
