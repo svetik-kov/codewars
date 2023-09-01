@@ -993,16 +993,18 @@ const uniqueInOrder2 = d => [...d].filter((x, i, a) => x != a[i + 1])
 
 function billboard(name, price = 30) {
     let cost = 0
-    for (let i = 0; i <name.length; i++) {
+    for (let i = 0; i < name.length; i++) {
         cost += price
     }
     return cost
     // return name.length*price
 }
+
 //2 способ
 function billboard1(name, price = 30) {
     return name.split('').reduce((sum, letter) => sum + price, 0);
 }
+
 //console.log(billboard("Hadufuns John", 20))
 
 //In this Kata we are passing a number (n) into a function.
@@ -1015,7 +1017,26 @@ function billboard1(name, price = 30) {
 //
 // Floats with decimal part non equal to zero are considered UNeven for this kata.
 function testEven(n) {
-  return  n%2===0? true:false
+    return n % 2 === 0 ? true : false
 }
 
-console.log(testEven(n))
+//console.log(testEven(n))
+
+
+//Define a function that removes duplicates from an array of non negative numbers and returns it as a result.
+//
+// The order of the sequence has to stay the same.
+//
+// Examples:
+//
+// Input -> Output
+// [1, 1, 2] -> [1, 2]
+// [1, 2, 1, 1, 3, 2] -> [1, 2, 3]
+
+function distinct(a) {
+
+    return a.filter((el, index) => a.indexOf(el) === index)
+}
+
+console.log(distinct([1, 2, 1, 1, 3, 2]))
+
