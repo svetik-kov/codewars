@@ -1233,23 +1233,76 @@ function pipeFix(numbers) {
 // [1, 1, 1]  =>  [1]
 // []  =>  []
 function twoHighest(arr) {
-                                                //метод пузырька
-   /* let array = []
-    for (let j = 0; j <= arr.length-1; j++) {
-        for (let i = 0; i <= arr.length-1-j; i++) {
-            if (arr[i] < arr[i + 1]) {
-               let temp=arr[i]
-                arr[i]=arr[i+1]
-                arr[i+1]=temp
-            }
-        }
-        array.push(arr[j])
+    //метод пузырька
+    /* let array = []
+     for (let j = 0; j <= arr.length-1; j++) {
+         for (let i = 0; i <= arr.length-1-j; i++) {
+             if (arr[i] < arr[i + 1]) {
+                let temp=arr[i]
+                 arr[i]=arr[i+1]
+                 arr[i+1]=temp
+             }
+         }
+         array.push(arr[j])
 
-    }*/
+     }*/
 
-    return arr.sort((a,b)=>b-a).filter((el,index,arr)=>index===arr.indexOf(el)).slice(0,2)
+    return arr.sort((a, b) => b - a).filter((el, index, arr) => index === arr.indexOf(el)).slice(0, 2)
 }
 
+//console.log(twoHighest([15, 20, 20, 17]))
+//console.log(twoHighest([1,1, 1, 1]))
 
-console.log(twoHighest([15, 20, 20, 17]))
-console.log(twoHighest([1,1, 1, 1]))
+//Input: Array of elements
+//
+// ["h","o","l","a"]
+//
+// Output: String with comma delimited elements of the array in th same order.
+//
+// "h,o,l,a"
+//
+// Note: if this seems too simple for you try the next level
+
+function printArray1(array) {
+    return array.join()
+}
+
+//console.log(printArray1(["h","o","l","a"]))
+
+//DESCRIPTION:
+// Input: Array of elements
+//
+// ["h","o","l","a"]
+//
+// Output: String with comma delimited elements of the array in th same order.
+//
+// "h,o,l,a"
+//
+// Javascript examples
+// printArray([1,2,3]) // --> '1,2,3' : elements are Numbers
+// printArray([[1,2],["a","b"]]) // --> '[[1,2],["a","b"]]' : elements are Arrays
+// Note: If you consider this too easy try the next level
+function printArray1(arr) {
+    let result = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        let element = arr[i];
+
+        if (Array.isArray(arr[i])) {
+            result.push(JSON.stringify(element))
+
+        } else{
+         result.push(element.toString())
+        }
+
+    }
+    return result.join()
+}
+
+ const printArray = array => {
+    return array.some(v => Array.isArray(v) || typeof v === 'object') ?
+         JSON.stringify(array) : array.toString();
+}
+
+console.log(printArray(["h", "o", "l", "a"]))
+console.log(printArray([[1, 2], ["a", "b"]]))
