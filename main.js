@@ -1050,11 +1050,11 @@ function distinct(a) {
 
 function chromosomeCheck(sperm) {
 
-if (sperm==='XX') {
-    return "Congratulations! You're going to have a daughter."
-} else {
-  return   "Congratulations! You're going to have a son."
-}
+    if (sperm === 'XX') {
+        return "Congratulations! You're going to have a daughter."
+    } else {
+        return "Congratulations! You're going to have a son."
+    }
 
 }
 
@@ -1066,9 +1066,9 @@ if (sperm==='XX') {
 //
 // ['John', 'Smith'], 'Phoenix', 'Arizona'
 // This example will return the string Hello, John Smith! Welcome to Phoenix, Arizona!
-function sayHello( name, city, state ) {
+function sayHello(name, city, state) {
     //return `Hello, ${name.join(' ')}! Welcome to ${city}, ${state}!`
-    return `Hello, ${name.map((el)=>el).join(' ')}! Welcome to ${city}, ${state}!`
+    return `Hello, ${name.map((el) => el).join(' ')}! Welcome to ${city}, ${state}!`
 }
 
 //console.log(sayHello(['John', 'Smith'], 'Phoenix', 'Arizona'))
@@ -1090,11 +1090,17 @@ function sayHello( name, city, state ) {
 // "1"    =>  NULL
 // "1,2"  =>  NULL
 function array(string) {
-    if (string===''){ return null}
-    let arr=string.split(',')
-    if (arr.length===0){return null}
-    if (arr.slice(1,-1).length===0){return null}
-    return arr.slice(1,-1).join(' ')
+    if (string === '') {
+        return null
+    }
+    let arr = string.split(',')
+    if (arr.length === 0) {
+        return null
+    }
+    if (arr.slice(1, -1).length === 0) {
+        return null
+    }
+    return arr.slice(1, -1).join(' ')
 //return arr.split(",").slice(1,-1).join(" ") || null;
     //
 }
@@ -1106,10 +1112,10 @@ function array(string) {
 //
 // Can you help her?
 
-function greet(name){
+function greet(name) {
 
 
-    if(name === "Johnny") {
+    if (name === "Johnny") {
         return "Hello, my love!";
     }
     return "Hello, " + name + "!";
@@ -1124,9 +1130,10 @@ function greet(name){
 // ["Keep", "Remove", "Keep", "Remove", "Keep", ...] --> ["Keep", "Keep", "Keep", ...]
 //
 // None of the arrays will be empty, so you don't have to worry about that!
-function removeEveryOther(arr){
-   return arr.filter((el,index)=>index%2===0)
+function removeEveryOther(arr) {
+    return arr.filter((el, index) => index % 2 === 0)
 }
+
 //console.log(removeEveryOther(['Hello', 'Goodbye', 'Hello Again']))
 
 //An infinite number of shelves are arranged one above the other in a staggered fashion.
@@ -1163,23 +1170,25 @@ function removeEveryOther(arr){
 // Start 1, finish 5, then answer is 2 (1 => 4 => 5 or 1 => 2 => 5)
 
 function solution(start, finish) {
-  const dif=finish-start
-    const result=Math.floor(dif/3)+dif%3
+    const dif = finish - start
+    const result = Math.floor(dif / 3) + dif % 3
 
-return result
+    return result
 }
+
 //console.log(solution(1, 5))
 
 //In this simple exercise, you will build a program that takes a value, integer , and returns a list of its multiples up to another value, limit . If limit is a multiple of integer, it should be included as well. There will only ever be positive integers passed into the function, not consisting of 0. The limit will always be higher than the base.
 //
 // For example, if the parameters passed are (2, 6), the function should return [2, 4, 6] as 2, 4, and 6 are the multiples of 2 up to 6.
 function findMultiples(integer, limit) {
-    const result=[]
-   for (let i=integer;i<=limit;i+=integer){
-          result.push(i)
-   }
-   return result
+    const result = []
+    for (let i = integer; i <= limit; i += integer) {
+        result.push(i)
+    }
+    return result
 }
+
 //console.log(findMultiples(5, 25))
 
 //Issue
@@ -1195,19 +1204,52 @@ function findMultiples(integer, limit) {
 // Example
 // Input:  1,3,5,6,7,8 Output: 1,2,3,4,5,6,7,8
 
-function pipeFix1(numbers){
- return  Array.from({length:numbers.slice(-1)-numbers[0]+1},
-    (_,index)=>index+numbers[0])
- }
-function pipeFix(numbers){
-   let first = numbers[0];
-    let last = numbers[numbers.length-1];
+function pipeFix1(numbers) {
+    return Array.from({length: numbers.slice(-1) - numbers[0] + 1},
+        (_, index) => index + numbers[0])
+}
 
-    let  arr = [];
-    for(let i = first; i <= last; i++) {
+function pipeFix(numbers) {
+    let first = numbers[0];
+    let last = numbers[numbers.length - 1];
+
+    let arr = [];
+    for (let i = first; i <= last; i++) {
         arr.push(i);
     }
     return arr;
 }
+
 // assert.deepEqual(pipeFix([1,2,3,5,6,8,9]),[1,2,3,4,5,6,7,8,9]);
-console.log(pipeFix([1,2,3,5,6,8,9]))
+//console.log(pipeFix([1,2,3,5,6,8,9]))
+
+//In this kata, your job is to return the two distinct highest values in a list. If there're less than 2 unique values, return as many of them, as possible.
+//
+// The result should also be ordered from highest to lowest.
+//
+// Examples:
+//
+// [4, 10, 10, 9]  =>  [10, 9]
+// [1, 1, 1]  =>  [1]
+// []  =>  []
+function twoHighest(arr) {
+                                                //метод пузырька
+   /* let array = []
+    for (let j = 0; j <= arr.length-1; j++) {
+        for (let i = 0; i <= arr.length-1-j; i++) {
+            if (arr[i] < arr[i + 1]) {
+               let temp=arr[i]
+                arr[i]=arr[i+1]
+                arr[i+1]=temp
+            }
+        }
+        array.push(arr[j])
+
+    }*/
+
+    return arr.sort((a,b)=>b-a).filter((el,index,arr)=>index===arr.indexOf(el)).slice(0,2)
+}
+
+
+console.log(twoHighest([15, 20, 20, 17]))
+console.log(twoHighest([1,1, 1, 1]))
