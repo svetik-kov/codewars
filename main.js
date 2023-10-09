@@ -1291,17 +1291,17 @@ function printArray1(arr) {
         if (Array.isArray(arr[i])) {
             result.push(JSON.stringify(element))
 
-        } else{
-         result.push(element.toString())
+        } else {
+            result.push(element.toString())
         }
 
     }
     return result.join()
 }
 
- const printArray = array => {
+const printArray = array => {
     return array.some(v => Array.isArray(v) || typeof v === 'object') ?
-         JSON.stringify(array) : array.toString();
+        JSON.stringify(array) : array.toString();
 }
 
 //console.log(printArray(["h", "o", "l", "a"]))
@@ -1315,7 +1315,7 @@ function printArray1(arr) {
 // Return true if the number of days passed from last to today is greater than cycleLength. Otherwise, return false.
 
 function periodIsLate(last, today, cycleLength) {
-    if (((today-last)/(60 * 60 * 24 * 1000))>cycleLength){
+    if (((today - last) / (60 * 60 * 24 * 1000)) > cycleLength) {
         return true
     }
     return false;
@@ -1334,8 +1334,6 @@ function periodIsLate(last, today, cycleLength) {
 // }
 
 
-
-
 //If/else syntax debug
 // While making a game, your partner, Greg, decided to create a function to check if the user is still alive called checkAlive/CheckAlive/check_alive. Unfortunately, Greg made some errors while creating the function.
 //
@@ -1343,10 +1341,51 @@ function periodIsLate(last, today, cycleLength) {
 //
 // The function receives one parameter health which will always be a whole number between -10 and 10.
 
-function checkAlive (health) {
+function checkAlive(health) {
     if (health <= 0) {
         return false
     } else {
         return true
     }
 }
+
+//The Collatz conjecture (also known as 3n+1 conjecture) is a conjecture that applying the following algorithm to any number we will always eventually reach one:
+//
+// [This is writen in pseudocode]
+// if(number is even) number = number / 2
+// if(number is odd) number = 3*number + 1
+// #Task
+//
+// Your task is to make a function hotpo that takes a positive n as input and returns the number of times you need to perform this algorithm to get n = 1.
+//
+// #Examples
+//
+// hotpo(1) returns 0
+// (1 is already 1)
+//
+// hotpo(5) returns 5
+// 5 -> 16 -> 8 -> 4 -> 2 -> 1
+//
+// hotpo(6) returns 8
+// 6 -> 3 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1
+//
+// hotpo(23) returns 15
+// 23 -> 70 -> 35 -> 106 -> 53 -> 160 -> 80 -> 40 -> 20 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1
+
+
+function hotpo(n) {
+    let count = 0;
+
+    while (n !== 1) {
+        if (n % 2 === 0) {
+            n = n / 2;
+        } else {
+            n = 3 * n + 1;
+        }
+
+        count++;
+    }
+
+    return count;
+}
+console.log(hotpo(5))
