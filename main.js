@@ -1420,8 +1420,8 @@ function neutralise(s1, s2) {
         const st2 = s2[i]
         if (st1 === "+" && st2 === '+') {
             result += "+"
-        }else  if (st1 === "-" && st2 === '-') {
-                result += "-"
+        } else if (st1 === "-" && st2 === '-') {
+            result += "-"
         } else {
             result += "0"
         }
@@ -1438,25 +1438,25 @@ console.log(neutralise("-++-", "-+-+")) //-+00
 // Example (Input --> Output ):
 //
 // 3 --> "Earth"
-function getPlanetName(id){
+function getPlanetName(id) {
     var name;
-    switch(id){
+    switch (id) {
         case 1:
-        return    name = 'Mercury'
+            return name = 'Mercury'
         case 2:
-        return     name = 'Venus'
+            return name = 'Venus'
         case 3:
-         return   name = 'Earth'
+            return name = 'Earth'
         case 4:
-        return     name = 'Mars'
+            return name = 'Mars'
         case 5:
-         return   name = 'Jupiter'
+            return name = 'Jupiter'
         case 6:
-          return  name = 'Saturn'
+            return name = 'Saturn'
         case 7:
-         return   name = 'Uranus'
+            return name = 'Uranus'
         case 8:
-         return   name = 'Neptune'
+            return name = 'Neptune'
         default:
             return name;
     }
@@ -1467,7 +1467,7 @@ function getPlanetName(id){
 //Create a function that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers.
 
 function evenOrOdd(number) {
-    if (number %2===0){
+    if (number % 2 === 0) {
         return "Even"
     } else {
         return "Odd"
@@ -1497,23 +1497,23 @@ function evenOrOdd(number) {
 
 function whoseMove(lastPlayer, win) {
     //coding and coding..
-    if (lastPlayer==="black" && win=== true){
+    if (lastPlayer === "black" && win === true) {
         return "black"
     }
-    if (lastPlayer==="black" && win=== false){
+    if (lastPlayer === "black" && win === false) {
         return "white"
     }
-    if (lastPlayer==="white" && win=== true){
+    if (lastPlayer === "white" && win === true) {
         return "white"
     }
-    if (lastPlayer==="white" && win=== false){
+    if (lastPlayer === "white" && win === false) {
         return "black"
     }
 }
 
 function whoseMove(lastPlayer, win) {
     const opp = lastPlayer === 'black' ? 'white' : 'black';
-    return  win ? lastPlayer : opp;
+    return win ? lastPlayer : opp;
 }
 
 //Write a function that calculates the original product price, without VAT.
@@ -1529,11 +1529,11 @@ function whoseMove(lastPlayer, win) {
 // Round the result to 2 decimal places.
 // If null value given then return -1
 
-function excludingVatPrice(price){
-    if (price===null){
+function excludingVatPrice(price) {
+    if (price === null) {
         return -1;
-    } else{
-        res=+(price*100/115)
+    } else {
+        res = +(price * 100 / 115)
         return +(res.toFixed(2))
     }
 }
@@ -1547,41 +1547,27 @@ function excludingVatPrice(price){
 // Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
 
 class Person {
-    constructor(name,age) {
-        this.name=name
-        this.age=age
+    constructor(name, age) {
+        this.name = name
+        this.age = age
     }
-    get info(){
+
+    get info() {
         return this.getInfo()
     }
+
     getInfo() {
         return `${this.name}s age is ${this.age}`
     }
 }
 
-//Our football team has finished the championship.
 //
-// Our team's match results are recorded in a collection of strings. Each match is represented by a string in the format "x:y", where x is our team's score and y is our opponents score.
-//
-// For example: ["3:1", "2:2", "0:1", ...]
-//
-// Points are awarded for each match as follows:
-//
-// if x > y: 3 points (win)
-// if x < y: 0 points (loss)
-// if x = y: 1 point (tie)
-// We need to write a function that takes this collection and returns the number of points our team (x) got in the championship by the rules given above.
-//
-// Notes:
-//
-// our team always plays 10 matches in the championship
-// 0 <= x <= 4
-// 0 <= y <= 4
+
 
 function points(games) {
     let totalPoints = 0;
     for (let i = 0; i < games.length; i++) {
-        const [x, y] =games[i].split(':').map(Number);
+        const [x, y] = games[i].split(':').map(Number);
         if (x > y) {
             totalPoints += 3;
         } else if (x === y) {
@@ -1605,3 +1591,36 @@ function _points(games) {
     });
     return total;
 }
+
+
+//Find Mean
+// Find the mean (average) of a list of numbers in an array.
+//
+// Information
+// To find the mean (average) of a set of numbers add all of the numbers together and divide by the number of values in the list.
+//
+// For an example list of 1, 3, 5, 7
+//
+// 1. Add all of the numbers
+//
+// 1+3+5+7 = 16
+// 2. Divide by the number of values in the list. In this example there are 4 numbers in the list.
+//
+// 16/4 = 4
+// 3. The mean (or average) of this list is 4
+
+//1
+let findAverage1 =(nums)=> {
+    const sum = nums.reduce((acc, el) => acc + el, 0)
+    const result = sum / nums.length
+    return result
+}
+//2
+let find=function (nums) {
+    let sum = 0;
+    for (let i = 0; i < nums.length; i++) {
+        sum += nums[i];
+}
+return sum/nums.length
+}
+console.log(find([1, 3, 5, 7]))
