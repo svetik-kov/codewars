@@ -1677,3 +1677,23 @@ function explode(x) {
     }
     return result
 }
+
+//Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
+//
+// Examples
+// "This is an example!" ==> "sihT si na !elpmaxe"
+// "double  spaces"      ==> "elbuod  secaps"
+function reverseWords(str) {
+    let array=str.split(' ')
+    const arrayReverse=array.map(el=> {
+       return el.split('').reverse().join('')
+    })
+    return arrayReverse.join(' ')
+}
+//const words = str.split(' ');
+//   const reversedWords = words.map(function(word) {
+//     return word.split('').reverse().join('');
+//   });
+//   return reversedWords.join(' ');
+console.log( reverseWords('This is an example!'))
+
