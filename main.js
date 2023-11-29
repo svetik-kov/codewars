@@ -1645,3 +1645,35 @@ function isLeapYear(year) {
         return false;
     }
 }
+
+//You are given an initial 2-value array (x). You will use this to calculate a score.
+//
+// If both values in (x) are numbers, the score is the sum of the two. If only one is a number, the score is that number. If neither is a number, return 'Void!'.
+//
+// Once you have your score, you must return an array of arrays. Each sub array will be the same as (x) and the number of sub arrays should be equal to the score.
+//
+// For example:
+//
+// if (x) == ['a', 3] you should return [['a', 3], ['a', 3], ['a', 3]].
+
+//Вам дан исходный массив из двух значений (x). Вы будете использовать это для подсчета очков.
+// Если оба значения в (x) являются числами, оценка представляет собой сумму двух. Если только один из них является числом,
+// счет равен этому числу. Если ни одно из них не является числом, верните «Void!».
+// Получив оценку, вы должны вернуть массив массивов. Каждый подмассив будет таким же, как (x), а количество подмассивов должно быть равно счету.
+// Например:
+// if (x) == ['a', 3] вы должны вернуть [['a', 3], ['a', 3], ['a', 3]]
+
+function explode(x) {
+    if (typeof x[0] !== 'number' && typeof x[1] !== 'number') {
+        return 'Void!'
+    }
+    const scope = (typeof x[0] === 'number' && typeof x[1] === 'number')
+        ? x[0] + x[1]
+        : (typeof x[0] !== 'number' && typeof x[1] === 'number') ? x[1] : x[0]
+
+    let result = []
+    for (let i = 0; i < scope; i++) {
+        result.push(x)
+    }
+    return result
+}
