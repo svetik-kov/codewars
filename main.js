@@ -1610,17 +1610,38 @@ function _points(games) {
 // 3. The mean (or average) of this list is 4
 
 //1
-let findAverage1 =(nums)=> {
+let findAverage1 = (nums) => {
     const sum = nums.reduce((acc, el) => acc + el, 0)
     const result = sum / nums.length
     return result
 }
 //2
-let find=function (nums) {
+let find = function (nums) {
     let sum = 0;
     for (let i = 0; i < nums.length; i++) {
         sum += nums[i];
-}
-return sum/nums.length
+    }
+    return sum / nums.length
 }
 console.log(find([1, 3, 5, 7]))
+
+
+//In this kata you should simply determine, whether a given year is a leap year or not. In case you don't know the rules, here they are:
+//
+// Years divisible by 4 are leap years,
+// but years divisible by 100 are not leap years,
+// but years divisible by 400 are leap years.
+// Tested years are in range 1600 ≤ year ≤ 4000.
+
+
+function isLeapYear(year) {
+    if (year % 400 === 0) {
+        return true;
+    } else if (year % 100 === 0) {
+        return false;
+    } else if (year % 4 === 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
